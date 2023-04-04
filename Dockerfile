@@ -19,5 +19,9 @@ RUN apt-get update && \
 # Scons use python3
 RUN sed -i '1i#! /usr/bin/python3' $(which scons)
 
+# Copy build scripts
+COPY tg-build/* /tg-build/
+RUN chmod +x /tg-build/build.sh
+
 WORKDIR /the-gates
-CMD ["scons", "-j", "4", "platform=linuxbsd", "tools=no", "target=template_release", "production=yes", "use_lto=yes"]
+CMD ["/tg-build/build.sh"]
