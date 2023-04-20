@@ -1,4 +1,6 @@
 FROM ubuntu:bionic
+
+# Obtain dependencies
 RUN apt-get update && \
     apt-get install \
     -y \
@@ -21,7 +23,9 @@ RUN sed -i '1i#! /usr/bin/python3' $(which scons)
 
 # Copy build scripts
 COPY tg-build/* /tg-build/
-RUN chmod +x /tg-build/build.sh
+RUN chmod +x /tg-build/*
+
 
 WORKDIR /the-gates
+ENTRYPOINT ["/bin/sh"]
 CMD ["/tg-build/build.sh"]
