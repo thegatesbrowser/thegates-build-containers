@@ -2,7 +2,6 @@
 
 scons -j $(nproc) \
     platform=linuxbsd \
-    tools=no \
-    target=template_debug \
+    target=template_release \
     production=yes \
     use_lto=yes

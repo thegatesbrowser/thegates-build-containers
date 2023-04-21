@@ -28,4 +28,4 @@ RUN chmod +x /tg-build/*
 
 WORKDIR /the-gates
 ENTRYPOINT ["/bin/sh"]
-CMD ["/tg-build/build.sh"]
+CMD ["/tg-build/build_editor.sh"]
