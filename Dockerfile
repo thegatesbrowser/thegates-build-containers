@@ -16,7 +16,8 @@ RUN apt-get update && \
     libpulse-dev \
     libudev-dev \
     libxi-dev \
-    libxrandr-dev
+    libxrandr-dev \
+    libzmq3-dev
 
 # Scons use python3
 RUN sed -i '1i#! /usr/bin/python3' $(which scons)
