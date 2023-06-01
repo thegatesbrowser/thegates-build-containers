@@ -16,8 +16,16 @@ RUN apt-get update && \
     libpulse-dev \
     libudev-dev \
     libxi-dev \
-    libxrandr-dev \
-    libzmq3-dev
+    libxrandr-dev
+
+# ZeroMQ
+RUN apt-get update && \
+    apt-get install \
+    -y \
+    libzmq3-dev \
+    libsodium-dev \
+    libpgm-dev \
+    libnorm-dev
 
 # Scons use python3
 RUN sed -i '1i#! /usr/bin/python3' $(which scons)
