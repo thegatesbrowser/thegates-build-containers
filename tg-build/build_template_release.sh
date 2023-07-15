@@ -5,4 +5,5 @@ scons -j $(nproc) \
     target=template_release \
     production=yes \
     use_lto=yes \
-    the_gates_sandbox=no
+    the_gates_sandbox=no \
+    warnings=no
