@@ -18,7 +18,8 @@ RUN apt-get update && \
     libpulse-dev \
     libudev-dev \
     libxi-dev \
-    libxrandr-dev
+    libxrandr-dev \
+    libseccomp-dev
 
 # ZeroMQ
 RUN apt-get update && \
