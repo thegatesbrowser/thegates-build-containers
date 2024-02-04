@@ -9,7 +9,7 @@ fi
 
 docker run \
     -it \
-    --mount type=bind,source=/home/nordup/projects/godot/the-gates-folder/the-gates,target=/the-gates \
+    --mount type=bind,source=/media/common/Projects/thegates-folder/thegates,target=/the-gates \
     tg-build \
     ${1} # arg
 
