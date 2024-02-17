@@ -12,4 +12,3 @@ docker run \
     --mount type=bind,source=/media/common/Projects/thegates-folder/thegates,target=/the-gates \
     tg-build \
     ${1} # arg
-

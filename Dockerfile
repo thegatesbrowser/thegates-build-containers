@@ -21,22 +21,30 @@ RUN apt-get update && \
     libxrandr-dev \
     libseccomp-dev
 
-# ZeroMQ
+# Scons use python3
+RUN sed -i '1i#! /usr/bin/python3' $(which scons)
+
+# ZeroMQ dependencies
 RUN apt-get update && \
     apt-get install \
     -y \
-    libzmq3-dev \
     libsodium-dev \
     libpgm-dev \
-    libnorm-dev
+    libnorm-dev \
+    wget \
+    unzip
 
-# Scons use python3
-RUN sed -i '1i#! /usr/bin/python3' $(which scons)
+# Build libzmq.a
+RUN wget https://github.com/zeromq/libzmq/releases/download/v4.3.5/zeromq-4.3.5.zip && \
+    unzip zeromq-4.3.5.zip && \
+    cd zeromq-4.3.5 && \
+    ./configure --enable-static --disable-shared --disable-perf --disable-fast-install && \
+    make && \
+    make install
 
 # Copy build scripts
 COPY tg-build/* /tg-build/
 RUN chmod +x /tg-build/*
-
 
 WORKDIR /the-gates
 ENTRYPOINT ["/bin/sh"]
