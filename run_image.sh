@@ -1,14 +1,21 @@
 #!/bin/bash
 
-if [ -z ${1} ]
+if [ -z $1 ]
 then
-    echo "Enter path to the build script";
-    echo "Ex: /tg-build/build_template_release.sh ";
+    echo "usage: ./run_image.sh [build_app|build_sandbox|custom_path]";
+    echo "      custom path ex: /tg-build/build_template_release.sh";
     exit
+fi
+
+script=$1
+if [ "$1" = "build_app" ]; then
+    script="/tg-build/build_template_release.sh"
+elif [ "$1" = "build_sandbox" ]; then
+    script="/tg-build/build_template_debug_sandbox.sh"
 fi
 
 docker run \
     -it \
     --mount type=bind,source=/media/common/Projects/thegates-folder/thegates/godot,target=/the-gates \
     tg-build \
-    ${1} # arg
+    $script # arg
