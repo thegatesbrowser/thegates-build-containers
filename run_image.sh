@@ -16,6 +16,6 @@ fi
 
 docker run \
     -it \
-    --mount type=bind,source=/media/common/Projects/thegates-folder/thegates/godot,target=/the-gates \
+    --mount type=bind,source=/home/nordup/projects/thegates-folder/thegates/godot,target=/the-gates \
     tg-build \
     $script # arg
