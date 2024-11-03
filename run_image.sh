@@ -11,7 +11,7 @@ script=$1
 if [ "$1" = "build_app" ]; then
     script="/tg-build/build_template_release.sh"
 elif [ "$1" = "build_sandbox" ]; then
-    script="/tg-build/build_template_debug_sandbox.sh"
+    script="/tg-build/build_template_release_sandbox.sh"
 fi
 
 docker run \

@@ -4,9 +4,9 @@
 
 scons -j $(nproc) \
     platform=linuxbsd \
-    target=template_debug \
     production=yes \
-    use_lto=yes \
+    tools=no \
+    target=template_release \
+    optimize=speed \
     the_gates_sandbox=yes \
-    warnings=no \
     disable_exceptions=no
