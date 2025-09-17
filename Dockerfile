@@ -1,4 +1,4 @@
-FROM ubuntu:focal
+FROM ubuntu:jammy
 
 ENV DEBIAN_FRONTEND=noninteractive 
 
@@ -19,10 +19,8 @@ RUN apt-get update && \
     libudev-dev \
     libxi-dev \
     libxrandr-dev \
-    libseccomp-dev
-
-# Scons use python3
-RUN sed -i '1i#! /usr/bin/python3' $(which scons)
+    libseccomp-dev \
+    libwayland-dev
 
 # ZeroMQ dependencies
 RUN apt-get update && \
