@@ -4,5 +4,5 @@ scons -j $(nproc) \
     platform=linuxbsd \
     target=editor \
     production=yes \
-    the_gates_sandbox=no \
+    tg_renderer=no \
     disable_exceptions=no
