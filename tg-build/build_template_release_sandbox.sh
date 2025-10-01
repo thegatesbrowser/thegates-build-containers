@@ -6,5 +6,5 @@ scons -j $(nproc) \
     tools=no \
     target=template_release \
     optimize=speed \
-    tg_renderer=yes \
+    the_gates_sandbox=yes \
     disable_exceptions=no
